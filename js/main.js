@@ -1,7 +1,7 @@
 // List of links for homepage - Update Every Week!
 const links = [{
         label: "Week 1",
-        url: "week1/index.html"
+        url: "Week1/index.html"
     }
     /*,
         {
