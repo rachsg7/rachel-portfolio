@@ -34,7 +34,8 @@ h2 {
     font-weight: 800;
 }
 
-ol {
+ol,
+ul {
     font-size: x-large;
     margin: 41px;
     margin-left: 5%;
@@ -42,4 +43,9 @@ ol {
 
 ol a {
     color: #009e9e;
+}
+
+p {
+    margin-left: 8%;
+    font-size: x-large;
 }
