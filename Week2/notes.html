@@ -78,6 +78,69 @@
         <p>Weak Sets can be used to garbage collect references to a 'dead object' that had its original reference removed</p>
         <p>Maps can keep a list of key and value pairs, like a hash table</p>
 
+        <h2>Chapter 4</h2>
+        <p>Ways to declare functions:</p>
+        <pre>
+            <code>Function hello(){
+                Console.log('Hello World!');
+            }</code>
+        </pre>
+
+        <pre>
+            <code>Const goodbye = function() {
+            Console.log('Goodbye World!');
+        }; // This is an anonymous function because it doesn't have a name, it is only assigned to the variable 'goodbye'</code>
+        </pre>
+
+        <pre>
+            <code>Const goodbye = function bye(){
+                Console.log('Goodbye World!');
+            }; //These examples end with a semicolon</code>
+        </pre>
+
+        <p>Rest operator creates an array of arguments in the function. Example:</p>
+        <pre>
+            <code>Function rest(…args){
+                Return args;
+            } // The args parameter is an actual array and has access to the same methods</code>
+        </pre>
+
+        <p>You can include default parameters for an unused variable in a function:</p>
+        <pre>
+            <code>Function hello(name='World') {
+                Console.log(`Hello ${name}!`);
+            } </code>
+        </pre>
+
+        <p>If you call hello() it defaults to Hello World! Or if you call hello('Universe'); You get 'Hello Universe!'</p>
+        <p>Put default parameters after all the other parameters.</p>
+        <p>Arrow functions: anonymous, succinct</p>
+        <pre>
+            <code>Const square = x => x*x; // Takes value x and returns x*x - no need for return statement
+                Const add = (x,y) => x + y; // Requires parenthesis for more than one parameter
+                Const hello = () => alert('Hello World!'); // No parameters needs empty parenthesis</code>
+        </pre>
+
+        <p>Longer functions require curly braces:</p>
+        <pre>
+            <code>Const tax = (salary) => {
+                Const taxable = salary - 8000;
+                Cost lowerRate = 0.25 * taxable;
+                Taxable = taxable - 20000;
+                Const higherRate = 0.4 * taxable;
+                Return lowerRate + higherRate;
+            }</code>
+        </pre>
+
+        <p>Try out the sort callback</p>
+        <p>forEach() method loops through an array and invokes a callback function using each value as an argument.</p>
+        <pre>
+            <code>Colors.forEach( (color,index) =>
+                Console.log(`Color at position ${index} is ${color}`) );</code>
+        </pre>
+
+        <p>Map() function is similar to forEach(), takes a callback function as a parameter that is invoked on each item in the array.</p>
+
         <h2>Questions</h2>
         <ul>
             <li>Why would I ever need to use !! ??</li>

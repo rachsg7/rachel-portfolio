@@ -83,3 +83,12 @@ nav a:hover {
 p {
     font-size: large;
 }
+
+pre code {
+    background-color: #eee;
+    border: 1px solid black;
+    display: block;
+    padding: 20px;
+    font-family: monospace;
+    width: 70%;
+}
