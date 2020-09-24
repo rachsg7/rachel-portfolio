@@ -2,12 +2,11 @@
 const links = [{
         label: "Week 1",
         url: "Week1/index.html"
+    },
+    {
+        label: "Week 2",
+        url: "week2/index.html"
     }
-    /*,
-        {
-            label: "Week 2 Notes",
-            url: "week2/index.html"
-        }*/
 ]
 
 // Populate html with links

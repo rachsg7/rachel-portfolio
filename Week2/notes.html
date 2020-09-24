@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 Notes</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Portfolio for Rachel Schutz - Week 2 Notes</h1>
+    </header>
+
+    <main>
+        <h2>Chapter 2</h2>
+        <div>
+            <ul>
+                <li>Using Methods with Numbers:</li>
+                <li>Use two dots</li>
+                <ul>
+                    <li>5..toExponential();</li>
+                </ul>
+                <li>Put a space before the dot:</li>
+                <ul>
+                    <li>5 .toExponential();</li>
+                </ul>
+                <li>Always write integers as a decimal:</li>
+                <ul>
+                    <li>5.0.toExponential();</li>
+                </ul>
+                <li>Place the integer in parentheses</li>
+                <ul>
+                    <li>(5).toExponential();</li>
+                </ul>
+                <li>Assign the number to a constant:</li>
+                <ul>
+                    <li>const number = 5;</li>
+                    <li>Number.toExponential();</li>
+                </ul>
+            </ul>
+        </div>
+
+        <p>Null behaves like the number 0, undefined is not a number</p>
+
+        <h2>Chapter 3</h2>
+        <p>Destructuring array:</p>
+        <ul>
+            <li>Const [x,y] = [1,2]; // x = 1, y = 2</li>
+            <li>[x,y] = [y,x] // x = 2, y = 1</li>
+        </ul>
+        <p>Array Methods:</p>
+        <ul>
+            <li>.pop() returns the last item of the array and deletes it</li>
+            <li>.shift() returns and removes the first item of the array</li>
+            <li>.push() appends a new value to the end of the array</li>
+            <li>.unshift() adds a new item to the beginning of the array</li>
+            <li>.concat() merges an array with one or more arrays</li>
+            <li>You can also spread arrays. Example</li>
+            <ul>
+                <li>Avengers = […avengers, …['Hulk', 'Hawkeye', 'Black Widow'] ]; // Adds to the avengers array</li>
+            </ul>
+            <li>.join() turns array into a string separated by commas, or you can add your own .join(' & ');</li>
+            <li>.slice() creates a subarray</li>
+            <li>.splice() removes items from the array and adds something new in its place</li>
+            <li>.reverse() self explanatory </li>
+            <li>.sort() Alphabetically (numbers included-by first digit)</li>
+        </ul>
+        <p>Set includes numbers that don't duplicate, or if a string is used it contains all letters in the string, not repeating.</p>
+        <p>Convert set to array -> spread again</p>
+        <p>Const shoppingArray = […shoppingSet];</p>
+        <p>Weak Sets can be used to garbage collect references to a 'dead object' that had its original reference removed</p>
+        <p>Maps can keep a list of key and value pairs, like a hash table</p>
+
+        <h2>Questions</h2>
+        <ul>
+            <li>Why would I ever need to use !! ??</li>
+            <li>Examples of needing to use Bitwise operators?</li>
+        </ul>
+
+    </main>
+</body>
+
+</html>

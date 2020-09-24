@@ -12,6 +12,10 @@ body {
     margin: 0;
 }
 
+main {
+    margin-left: 4%;
+}
+
 h1 {
     display: flex;
     justify-content: center;
@@ -23,7 +27,7 @@ h1 {
     font-weight: 800;
     font-size: 2.7em;
     margin: 0;
-    height: 300px
+    height: 220px;
 }
 
 h2 {
@@ -34,18 +38,48 @@ h2 {
     font-weight: 800;
 }
 
-ol,
-ul {
+ol.homeList {
     font-size: x-large;
     margin: 41px;
     margin-left: 5%;
+}
+
+li {
+    padding: 1em;
 }
 
 ol a {
     color: #009e9e;
 }
 
-p {
-    margin-left: 8%;
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    text-align: right;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(56, 9, 121, 1) 35%, rgb(0, 255, 201) 100%);
     font-size: x-large;
+}
+
+nav ul li {
+    padding: 0;
+}
+
+nav li a {
+    display: inline-block;
+    color: white;
+    background-color: #380979;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 1em;
+    margin-right: 5%;
+}
+
+nav a:hover {
+    background-color: #6c31be;
+}
+
+p {
+    font-size: large;
 }
