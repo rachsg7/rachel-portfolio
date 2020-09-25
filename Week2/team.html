@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="text"> + <input id="text2">
+    <button id="button" onclick="add()">=</button>
+    <button id="button2" onclick="multiply()">*</button>
+    <button id="button3" onclick="subtract()">-</button>
+    <button id="button4" onclick="initialize(add)">ADD</button>
+
+    <!-- Instructor solution -->
+    <button id="stretchAdd" onclick="performOperation(add2)">+</button>
+    <button id="stretchSub" onclick="performOperation(sub2)">-</button>
+    <button id="stretchMult" onclick="performOperation(mult2)">*</button>
+    <div id="stretchOutput"></div>
+
+
+    <div id="emptyDiv"></div>
+
+    <script>
+        /* Step 1
+                                                                                                function readContents() {
+                                                                                                    let userContents = document.getElementById('text').value;
+                                                                                                    document.getElementById('emptyDiv').innerHTML = userContents;
+                                                                                                }*/
+
+        /* Step 2
+        function sumNumbers() {
+            let userContents = parseInt(document.getElementById('text').value);
+            let sum = 0;
+            for (let i = 1; i <= userContents; i++) {
+                sum += i;
+            }
+            document.getElementById('emptyDiv').innerHTML = sum;
+        }*/
+
+        let num1 = parseInt(document.getElementById('text').value);
+        let num2 = parseInt(document.getElementById('text2').value);
+
+        const add = function add(num1, num2) {
+            let sum = num1 + num2;
+            return sum;
+        }
+
+        const multiply = () => {
+            let num1 = parseInt(document.getElementById('text').value);
+            let num2 = parseInt(document.getElementById('text2').value);
+            let sum = num1 * num2;
+            document.getElementById('emptyDiv').innerHTML = sum;
+        };
+
+        const subtract = function() {
+            let num1 = parseInt(document.getElementById('text').value);
+            let num2 = parseInt(document.getElementById('text2').value);
+            let sum = num1 - num2;
+            document.getElementById('emptyDiv').innerHTML = sum;
+        };
+
+        function initialize(callback) {
+            let num1 = parseInt(document.getElementById('text').value);
+            let num2 = parseInt(document.getElementById('text2').value);
+            callback(num1, num2);
+        }
+
+        // stretch solution
+        function getNum(numId) {
+            const number = document.getElementById(numId).value;
+            const numberFloat = parseFloat(number);
+            if (numberFloat !== NaN) {
+                return numberFloat;
+            } else return 0;
+        }
+
+        function updateTotal(value) {
+            const outputElement = document.getElementById('stretchOutput');
+            outputElement.innerHTML = 'Total: ' + value;
+        }
+        // function declaration
+        function add2(num1, num2) {
+            return num1 + num2;
+        }
+        // function expression
+        const sub2 = function(num1, num2) {
+            return num1 - num2;
+        };
+        // arrow function
+        const mult2 = (num1, num2) => num1 * num2;
+
+        // example of using a callback to pull it all together
+        function performOperation(operation) {
+            // the argument 'operation' is a function...so when we are ready we can call that function in our code below
+            const total = operation(
+                getNum('stretchNumber1'),
+                getNum('stretchNumber2')
+            );
+            updateTotal(total);
+        }
+    </script>
+</body>
+
+</html>
