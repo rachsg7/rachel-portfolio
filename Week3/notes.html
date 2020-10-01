@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 Notes</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Portfolio for Rachel Schutz - Week 3 Notes</h1>
+    </header>
+
+    <main>
+        <h2>Chapter 5</h2>
+        <p>Do not use constructor function - use the object literal notation.</p>
+        <h3>Accessing Properties</h3>
+        <pre>
+            <code>
+                superman.name;
+                superman['name'];
+            </code>
+        </pre>
+        <h3>Find all properties of an object</h3>
+        <pre>
+            <code>
+                for(const key in superman) {
+                    console.log(key + ": " + superman[key])
+                }
+                //Object.keys() will return array of all keys
+            </code>
+        </pre>
+        <h3>Objects are copied by reference</h3>
+        <pre>
+            <code>
+                const thor = { name: 'Thor '};
+                const cloneThor = thor; // Points to same location in memory
+
+                JSON.parse(batman); // Takes string of data in JSON format and returns JavaScript object. 
+            </code>
+        </pre>
+        <p>Stringify() takes JavaScript object and returns a string of JSON data (does not do functions)</p>
+        <p>JSON.stringify(wonderWoman, null, " "); Makes it more readable</p>
+        <p>Moment.js library gives you methods to make it easier to work with dates & timezones.</p>
+        <h3>Regex Resources</h3>
+        <ul>
+            <li><a href="https://www.regextester.com/">Regextester.com</a></li>
+            <li><a href="https://regex101.com/">Regex101.com</a></li>
+            <li><a href="https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124/">Mastering Regular Expressions</a></li>
+            <li><a href="http://www.regular-expressions.info/">Regular-expressions.info</a></li>
+        </ul>
+
+        <pre>
+            <code>
+                const vowels = /[aeiou]/ // Matches any vowel
+                /[A-Z]/ // Any uppercase letter
+                /0-9]/ // Any number
+                /[^A-Z] // NOT a capital letter
+            </code>
+        </pre>
+        <h2>Chapter 6</h2>
+        <h3>DOM</h3>
+        <p>DOM getting elements: getElementById, getElementsByClassName, getElementsByTagName, querySelector, and querySelectorAll</p>
+        <p>The DOM treats everything on the webpage as a node.</p>
+        <h3>DOM Shortcut Methods</h3>
+        <ul>
+            <li>document.body - returns body element of a web page</li>
+            <li>document.images - returns a node list of all images in the document</li>
+            <li>document.links - returns a node list of all <code><a></code> elements and <code><area></code> elements that have href attribute</li>
+            <li>document.anchors - returns a node list of all <code><a></code> elements with a name attribute</li>
+            <li>document.forms - returns a node list of all forms in the document</li>
+            <li>getElementsByTagName - returns a live node list of all elements with the tag name that is provided</li>
+            <li>getElementsByClassName - returns a node list of all elements with the class name that is provided</li>
+            <li>querySelector - allows you to use CSS notation to find the first element that matches a CSS selector</li>
+            <li>querySelectorAll - returns a node list of all elements in the document that match the CSS query selector</li>
+        </ul>
+        <p>You can get childNodes from an element, or you can use .children to find only non-whitespace elements (no extra "text" property)</p>
+        <p>Be careful using firstChild and lastChild properties of nodes, since they are frequently empty "text" properties</p>
+        <h3>Getting and Setting Attributes</h3>
+        <p>Things you can get or set: class, id, src, href</p>
+        <ul>
+            <li>getAttribute() // get a class or id</li>
+            <li>setAttribute() // changes the value of an attribute. Takes 2 parameters: 1-what you want to change 2- new value</li>
+            <li>.className can update the class but it will overwrite all classes that have been set to the element</li>
+            <li>.classList.add() to add new classes without overwriting</li>
+            <li>.classList.remove() to remove a specific class</li>
+            <li>.classList.toggle() adds a class if it doesn't have it, removes a class if it does have it</li>
+            <li>.classList.contains() returns true or false</li>
+        </ul>
+        <h3>Creating Elements</h3>
+        <ul>
+            <li>document.createElement() creates an empty element</li>
+            <li>.createTextNode('Text here'); Creates a string of text that goes in a node</li>
+            <li>.appendChild(); adds the node to the element</li>
+            <li>.removeChild() removes a node</li>
+            <li>.replaceChild() Uses two parameters: new node and node being replaced</li>
+            <li>.innerHTML() Returns all child elements as a string of HTML, including tags around it</li>
+        </ul>
+        <h3>Live Collections</h3>
+        <p>When using getElementsByClassName and getElementsByTagName, they are live collections that update to reflect changes on the page. Generally discouraged for performance reasons.</p>
+        <h3>Update CSS with the Style Property</h3>
+        <pre>
+            <code>
+                superman.style.border = "red 2px solid"; // For example
+            </code>
+        </pre>
+        <p>Properties with dashes (like background-color) need to be Camel Cased</p>
+        <pre>
+            <code>
+                superman.styles.backgroundColor = 'blue'; // OR
+                superman.style['background color'] = 'blue';
+            </code>
+        </pre>
+        <p>Display property can make elements disappear and reappear</p>
+        <p>getComputedStyle() retrieves all style information of an element. Read only to figure out information about the style only. Returns CSSStyleDeclaration object. It has some built in methods to help extract information.</p>
+        <p>getComputedStyle(superman).getPropertyCSSValue('color').cssText; // returns rgb(0,0,0) for example</p>
+        <p>It may be easier to dynamically change the class of an element and add in the class when you need it</p>
+
+        <h2>Chapter 7 - Events</h2>
+        <p>Document.body.addEventListener("click", doSomething); // Event that fires when the user clicks anywhere on the page</p>
+
+        <p>Don't mix up the JavaScript in the HTML. Keep it with the JavaScript for better readability, and ability to add more than one event handler per element, etc</p>
+
+        <p>Event Object - an object is passed as a parameter that contains information about the event</p>
+
+        <pre>
+    <code>Function doSomething(event) { // Event
+        Console.log(event.type); // .type returns the type of event i.e. 'click'
+    }
+</code>
+</pre>
+
+
+        <ul>
+            <li>.target // Returns what was clicked on. Example: <code><p>Paragraph</p></code></li>
+            <li>.screenX and .screenY // Returns the number of pixels from the left and top of the screen</li>
+            <li>.clientX and .clientY properties show the number of pixels from the left and top of the client (browser window)</li>
+            <li>pageX and pageY // Returns the number of pixels from the left and top where the event took place in the document</li>
+        </ul>
+        <h3>Common events:</h3>
+
+        <h4>Mouse:</h4>
+        <ul>
+            <li>Click</li>
+            <li>Mousedown</li>
+            <li>mouseup</li>
+            <li>dblclick</li>
+            <li>mouseover</li>
+            <li>mouseout</li>
+            <li>mousemove</li>
+        </ul>
+
+        <h4>Keyboard:</h4>
+        <ul>
+            <li>Keydown</li>
+            <li>keypress</li>
+            <li>keyup</li>
+        </ul>
+
+        <p>Keydown is the action of pressing a key, keypress is the action of a character being typed on the screen</p>
+
+        <p>addEventListener('keypress', (event) => console.log(`You pressed the ${event.key} character`));</p>
+
+        <h3>Touch listening events</h3>
+        <ul>
+            <li>Touchstart // Occurs when user initially touches the surface. "Click" should be more widely used </li>
+            <li>Touchend // Occurs when user stops touching the surface</li>
+            <li>Touchmove // Occurs after a user has touched the screen then moves around without leaving</li>
+            <li>Touchcenter // User has already touched the surface but then passes over the element</li>
+            <li>Touchleave // still touching the surface but leaves the element to which the listener is attached</li>
+            <li>Touchcancel // Touch event is interrupted</li>
+        </ul>
+
+        <p>No swiping events -- created using touchstart, touchmove, and touchleave</p>
+        <p>Hammer.js or zingtouch libraries make swipe, pinch, and rotate easy to implement</p>
+
+        <p>Touch objects have a property called touches. List of touch objects that represents all the touches taking place. Has a length property that tells how many touch points are in contact with surface.</p>
+
+        <p>removeEventListener() can remove events. Don't use anonymous functions as an argument to addEventListener if you want to remove it later</p>
+
+        <p>preventDefault() changes default behavior</p>
+
+        <h3>Event Propagation</h3>
+
+        <p>Event propagation is the order that the events fire on each element. Bubbling and capturing. </p>
+
+        <p>Bubbling: event fires on the element clicked first, bubbles up the document tree, firing an event on each parent element until it reaches root node.</p>
+
+        <p>Capturing: starts on the root element then propagates downwards, firing an event on each child element until it reaches the target element it was clicked on.</p>
+
+        <p>Default behavior is bubbling: to change it to capturing, use the third parameter in addEventListener:</p>
+
+        <p>Element.addEventListener('click', function, true); // Defaults to false, which makes it bubbling</p>
+
+        <p>Event.stopPropagation() will stop propagation when used in the callback function</p>
+
+        <p>Using the target property you can attach separate event listener to dynamic lists, or similar</p>
+    </main>
+</body>
+
+</html>
