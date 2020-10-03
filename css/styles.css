@@ -92,3 +92,7 @@ pre code {
     font-family: monospace;
     width: 70%;
 }
+
+.hidden {
+    display: none;
+}
