@@ -33,9 +33,15 @@ h1 {
 h2 {
     font-size: 2.2em;
     color: black;
-    margin: 3% 0px 0px 5%;
     padding: 15px;
     font-weight: 800;
+}
+
+h3 {
+    background-color: #eee;
+    border-bottom: #c0c0;
+    padding: 1em;
+    margin-right: 5%;
 }
 
 ol.homeList {
@@ -46,6 +52,10 @@ ol.homeList {
 
 li {
     padding: 1em;
+}
+
+ol {
+    transition: visibility 0s linear 0s, opacity 300ms;
 }
 
 ol a {
@@ -93,6 +103,13 @@ pre code {
     width: 70%;
 }
 
-.hidden {
-    display: none;
+ol.hidden {
+    overflow: hidden;
+    height: 0;
+}
+
+ol {
+    height: 150px;
+    overflow: auto;
+    transition: all 300ms linear;
 }

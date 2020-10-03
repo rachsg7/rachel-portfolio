@@ -1,19 +1,7 @@
-// List of links for homepage - Update Every Week!
-const links = [{
-        label: "Week 1",
-        url: "Week1/index.html"
-    },
-    {
-        label: "Week 2",
-        url: "Week2/index.html"
-    },
-    {
-        label: "Week 3",
-        url: "Week3/index.html"
-    }
-]
-
-const links2 = {
+/** List of Links for Homepage
+ *  Update every week!
+ */
+const links = {
     "Week 1": {
         links: [{
                 label: "Notes",
@@ -38,42 +26,54 @@ const links2 = {
     },
     "Week 3": {
         links: [{
-            label: "Notes",
-            url: "Week3/notes.html"
-        }]
+                label: "Notes",
+                url: "Week3/notes.html"
+            },
+            {
+                label: "Team Project",
+                url: "Week3/team.html"
+            },
+            {
+                label: "My Practice",
+                url: "Week3/practice.html"
+            }
+        ]
     }
 
 }
 
-// Populate html with links
-/*let ol = document.getElementById('block1-list');
-for (let i = 0; i < links.length; i++) {
-    let li = document.createElement('li');
-    li.innerHTML = '<a href=\"' + links[i].url + '\">' + links[i].label + '</a>';
-    ol.appendChild(li);
-}*/
-
-// Populate html with links
-
+/** Populate HTML with dynamic links */
 let week = document.getElementById('block1-list');
-for (var item in links2) {
+for (var item in links) {
+    // Create 'h3' elements and 'ol' elements to put under it. Add ids and classes to them.
     let header = document.createElement('h3');
+    header.id = item.split(" ").join("");
+    let ol = document.createElement('ol');
+    ol.id = item.split(" ").join("") + 'ol';
+    ol.classList.add("hidden");
     header.innerHTML = item;
     week.appendChild(header);
-    console.log(item);
-    for (let link in links2[item]) {
-        for (let obj in links2[item][link]) {
-            console.log(links2[item][link][obj]);
-        }
-        //console.log(links2[item][link].length);
+    week.appendChild(ol);
+    for (let link in links[item].links) {
+        // Create 'li' elements to add to my ol - these will be the weekly links
+        let li = document.createElement('li');
+        let label = links[item].links[link].label;
+        let href = links[item].links[link].url;
+        li.innerHTML = '<a href=\"' + href + '\">' + label + '</a>';
+        ol.appendChild(li);
     }
-    //console.log(links2[item]);
 }
 
-
-function openBlockOne() {
-    ol.classList.toggle('hidden');
+/** Create 'click' event for all h3 elements on home page
+ *  They will show all links for that week when clicked
+ */
+const tag = document.getElementsByTagName('h3');
+console.log(tag);
+for (let item in tag) {
+    let week = document.getElementById(tag[item].id);
+    week.addEventListener('click', (event) => {
+        console.log((event.target).id);
+        const ol = document.getElementById((event.target).id + 'ol');
+        ol.classList.toggle('hidden');
+    });
 }
-
-const block1 = document.getElementById('block1');
-block1.addEventListener('click', openBlockOne);
