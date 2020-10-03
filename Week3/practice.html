@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Week 3</title>
+</head>
+
+<body>
+    <script>
+        const beatles = [{
+            first: 'Paul',
+            last: 'McCartney',
+            year: 1942,
+            passed: null,
+            instrument: 'bass guitar'
+        }, {
+            first: 'John',
+            last: 'Lennon',
+            year: 1940,
+            passed: 1980,
+            instrument: 'rhythm guitar and vocals'
+        }, {
+            first: 'George',
+            last: 'Harrison',
+            year: 1943,
+            passed: 2001,
+            instrument: 'lead guitar'
+        }, {
+            first: 'Richard',
+            last: 'Starkey',
+            year: 1940,
+            passed: null,
+            instrument: 'drums'
+        }];
+
+        const guitarPlayers = beatles.map(beatles => beatles.instrument).filter(instrument => instrument.includes('guitar'));
+        console.log(guitarPlayers);
+
+        const names = beatles.map(beatles => `${beatles.first} ${beatles.last}`);
+        console.log(names);
+    </script>
+</body>
+
+</html>
