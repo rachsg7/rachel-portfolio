@@ -38,6 +38,18 @@ const links = {
                 url: "Week3/practice.html"
             }
         ]
+    },
+    "Week 4": {
+        links: [{
+            label: "Notes",
+            url: "Week4/notes.html"
+        }]
+    },
+    "Week 5": {
+        links: [{
+            label: "Notes",
+            url: "Week5/notes.html"
+        }]
     }
 
 }

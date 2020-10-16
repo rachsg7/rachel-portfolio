@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 5 Notes</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Portfolio for Rachel Schutz - Week 5 Notes</h1>
+    </header>
+
+    <main>
+        <h2>Chapter 10 - Debugging</h2>
+
+        <p>Exception is an error that produces a return value that can be used by the program to deal with the error</p>
+
+        <p>Exceptions produce stack traces. Sequence of functions or method calls that lead to the point where the error occurred.</p>
+
+        <p>Warnings can occur if there's an error that's not enough to cause the program to crash.</p>
+
+        <p>Goal as a programmer is to write code that gives "loud" errors so they can be fixed during development, and when in production doesn't fail the user's experience</p>
+
+        <p>Add 'use strict'; to the first line of JavaScript file to make errors easier to spot, make things more clear, and keep your code not "sloppy"</p>
+
+        <p>Use strict can also be used inside a function and will only work inside that function</p>
+
+        <p>Test quality of JavaScript code by using JS Lint, JS Hint, or ES Lint. They will enforce a style guide, and highlight sloppy code as you type, or give you feedback depending on how you use it.</p>
+
+        <p>Use feature detection before using a browser feature to make sure it will work</p>
+
+        <p>Modernizr is a library that offers an easy way to implement feature detection and Can I Use? Is another useful resource</p>
+
+
+        <p>Alert() is a useful way to quickly debug, but there are much better tools now.</p>
+
+        <p>Console.log() is another good one. Does not stop execution of the program</p>
+
+        <p>Console.trace() will log an interactive stack trace in the console</p>
+
+        <p>You can set breakpoints in your browser</p>
+
+        <p>Debugger keyword will automatically create a breakpoint in your code that will pause the program at that point</p>
+
+        <p>This seems dumb because you can do it without a keyword and then will have to remove them when you're done. Just use the browser.</p>
+
+        <p>Error objects are created in the host environment when an exception occurs.</p>
+
+        <p>Const error = new Error(); // Can also have text as a parameter</p>
+
+        <p>EvalError - only around for backwards compatibility</p>
+
+        <p>RangeError - thrown for a number outside allowable range of values</p>
+
+        <p>ReferenceError - thrown when there's a reference to an item that doesn't exist</p>
+
+        <p>SyntaxError - error in the syntax</p>
+
+        <p>TypeError - thrown when there's an error in the type of value used i.e. string instead of number</p>
+
+        <p>URIError - thrown when there's a problem encoding or decoding the URI</p>
+
+        <p>// What's the URI?</p>
+
+        <p>InternalError - non-standard error that is thrown when an error occurs in the JavaScript engine. Can happen when using too much recursion</p>
+
+        <p>Error objects have properties that are used inconsistently across browsers, but safe ones are:</p>
+
+        <p>Name</p>
+
+        <p>Message</p>
+
+        <p>Stack - non-standard property, not safe to use in production sites</p>
+
+        <p>Throw statement can be used to throw exceptions.</p>
+
+        <p>i.e. throw new Error('Something is wrong');</p>
+
+
+        <p>Example:</p>
+
+        <pre>
+    <code>
+        function squareRoot(number) {
+            'use strict';
+            if (number < 0) {
+            throw new RangeError('You can't find the square root of negative numbers')
+            }
+            return Math.sqrt(number);
+            };
+    </code>
+</pre>
+
+
+
+        <p>Use exception handling to catch errors so they don't crash your program</p>
+
+        <p>Wrap code that may result in an exception in a 'try' block. If an exception occurs it will pass error object thrown into a 'catch' block</p>
+
+        <pre><code>
+    function imaginarySquareRoot(number) {
+        'use strict';
+        try {
+        return String(squareRoot(number));
+        } catch(error) {
+        return squareRoot(-number)+'i';
+        }
+        }
+        
+</code></pre>
+
+        <p>Test-driven development is the process of writing tests before any code.</p>
+        <ul>
+            <li>Write tests</li>
+            <li>Write code to pass the tests</li>
+            <li>Refactor the code</li>
+            <li>Test refactored code</li>
+            <li>Write more tests for new features</li>
+        </ul>
+
+        <p>Jest is a TDD framework that makes it easy to create and run tests.</p>
+
+    </main>
+</body>
+
+</html>
