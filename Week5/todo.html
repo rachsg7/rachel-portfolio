@@ -5,17 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
+    <!--<link rel="stylesheet" href="../css/todostyles.css">-->
 </head>
 
 <body>
     <h1>Todos</h1>
+    <main>
+        <div id='todo'></div>
+    </main>
 
     <footer>
-        <form name='addtodo'>
-            <input type='text' placeholder='Add Task'>
-            <input type='submit' value='+'>
-        </form>
+        <input type='text' placeholder='Add Task' id='addTask'>
+        <button id='addButton'>+</button>
     </footer>
+
+    <script src="../js/todomain.js" type="module"></script>
 </body>
 
 </html>
