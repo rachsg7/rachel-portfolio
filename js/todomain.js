@@ -1,15 +1,13 @@
 import Todo from './todo.js';
-import TodoList from './ls.js';
-const todolist = new TodoList;
+import TodoList from './todoList.js';
+import { todolist, addTask } from './utilities.js';
 
-window.addEventListener('load', () => {
-    document.getElementById('addButton').addEventListener('click', () => {
-        addTask();
-    })
-});
 
-function addTask() {
-    let newTask = new Todo(document.getElementById('addTask').value);
-    todolist.add(newTask);
-    console.log(todolist.data);
-}
+document.getElementById('addButton').addEventListener('click', () => {
+    addTask();
+})
+document.getElementById('addTask').addEventListener('keyup', function(event) {
+    if (event.key == "Enter") {
+        document.getElementById('addButton').click();
+    }
+})
