@@ -11,3 +11,7 @@ document.getElementById('addTask').addEventListener('keyup', function(event) {
         document.getElementById('addButton').click();
     }
 })
+
+function toggle() {
+    alert('hi');
+}

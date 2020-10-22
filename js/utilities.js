@@ -22,6 +22,7 @@ function addStyle(todo) {
     // Checkbox
     let newCheckbox = document.createElement('input');
     newCheckbox.setAttribute('type', 'checkbox');
+    newCheckbox.setAttribute('onclick', 'toggle()'); // Need function to toggle
     newCheckbox.classList.add('checkbox');
     newCheckbox.id = todo.id;
 
@@ -38,6 +39,8 @@ function addStyle(todo) {
 function clearInput() {
     document.getElementById('addTask').value = null;
 }
+
+
 
 /** Export list */
 export {

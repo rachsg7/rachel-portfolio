@@ -5,4 +5,11 @@ export default class Todo {
         this.content = content;
         this.completed = false;
     }
+    toggle() {
+        if (this.completed = false) {
+            this.completed = true;
+        } else {
+            this.completed = false;
+        }
+    }
 }
