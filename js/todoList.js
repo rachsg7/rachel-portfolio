@@ -23,11 +23,11 @@ export default class TodoList {
     }
 
     getComplete() {
-        return this.data.find(todo => todo.complete == true);
+        return this.data.filter(todo => todo.completed == true);
     }
 
     getIncomplete() {
-        return this.data.find(todo => todo.complete == false);
+        return this.data.filter(todo => todo.completed == false);
     }
 
     remove(id) {

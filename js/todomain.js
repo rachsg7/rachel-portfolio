@@ -1,6 +1,4 @@
-import Todo from './todo.js';
-import TodoList from './todoList.js';
-import { todolist, addTask, addStyle } from './utilities.js';
+import { todolist, addTask, addStyle, active, complete, listAll } from './utilities.js';
 
 document.addEventListener("DOMContentLoaded", function() {
     if (todolist) {
@@ -18,3 +16,10 @@ document.getElementById('addTask').addEventListener('keyup', function(event) {
         document.getElementById('addButton').click();
     }
 })
+
+if (todolist) {
+    document.getElementById('tasks-left').innerHTML = `${todolist.getIncomplete().length} tasks left`;
+}
+document.getElementById('tasks-all').addEventListener('click', listAll);
+document.getElementById('tasks-active').addEventListener('click', active);
+document.getElementById('tasks-complete').addEventListener('click', complete);

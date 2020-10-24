@@ -19,6 +19,11 @@ function addStyle(todo) {
     // New div for specific task item
     let newSection = document.createElement('div');
 
+    // Is this item complete? Add crossed class if it is
+    if (todo.completed) {
+        newSection.classList.add('crossed');
+    }
+
     // Checkbox
     let newCheckbox = document.createElement('input');
     newCheckbox.setAttribute('type', 'checkbox');
@@ -41,9 +46,12 @@ function addStyle(todo) {
     // Add task item to todo div
     newTask.appendChild(newSection);
 
+    // Add dynamic event listeners
     document.getElementById(todo.id).addEventListener('click', clicked);
     document.getElementById(`${todo.id}-remove`).addEventListener('click', remove);
     document.getElementById(todo.id).checked = todo.completed;
+
+    document.getElementById('tasks-left').innerHTML = `${todolist.getIncomplete().length} tasks left`;
 }
 
 /** Clear the input field */
@@ -51,6 +59,7 @@ function clearInput() {
     document.getElementById('addTask').value = null;
 }
 
+/** Update todolist and html when clicked */
 function clicked(e) {
     let list = todolist.get(e.target.id);
     if (e.target.checked) {
@@ -61,20 +70,54 @@ function clicked(e) {
         e.target.parentElement.classList.remove('crossed');
     }
     todolist.update(list);
+    document.getElementById('tasks-left').innerHTML = `${todolist.getIncomplete().length} tasks left`;
 }
 
+/** Removes Task Div */
 function remove(e) {
     let id = e.target.id.split('-')[0];
     todolist.remove(id);
 
     e.target.parentElement.remove();
+    document.getElementById('tasks-left').innerHTML = `${todolist.getIncomplete().length} tasks left`;
 }
 
+/** Clear the todo div */
+function clearAll() {
+    document.getElementById('todo').innerHTML = '';
+}
 
+/** List All todolist items */
+function listAll() {
+    clearAll();
+    todolist.list().forEach(todo => {
+        addStyle(todo);
+    });
+}
+
+/** List all incomplete items */
+function active() {
+    clearAll();
+    todolist.getIncomplete().forEach(todo => {
+        addStyle(todo);
+    })
+}
+
+/** List all complete items */
+function complete() {
+    clearAll();
+    todolist.getComplete().forEach(todo => {
+        addStyle(todo);
+    })
+}
 
 /** Export list */
 export {
     todolist,
     addTask,
-    addStyle
+    addStyle,
+    clearAll,
+    active,
+    complete,
+    listAll
 }
