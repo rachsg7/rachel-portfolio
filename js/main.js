@@ -55,6 +55,12 @@ const links = {
                 url: "Week5/todo.html"
             }
         ]
+    },
+    "Week 6": {
+        links: [{
+            label: "Finished Todo List",
+            url: "Week5/todo.html"
+        }]
     }
 
 }
