@@ -72,6 +72,12 @@ const links = {
                 url: "Week7/ajax.html"
             }
         ]
+    },
+    "Week 8": {
+        links: [{
+            label: "Notes",
+            url: "Week8/notes.html"
+        }]
     }
 
 }
