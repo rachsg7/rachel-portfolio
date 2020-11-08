@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 8 Notes</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Portfolio for Rachel Schutz - Week 8 Notes</h1>
+    </header>
+
+    <main>
+        <h2>Chapter 8 - Transforms and Transitions</h2>
+        <h3>Transforms</h3>
+        <p>Transform property lets you translate, rotate, scale, skew any element.</p>
+        <p>Translation allows you to move elements left, right, up, or down.</p>
+        <pre><code>
+            transform: translate(45px, -45px);
+        </code></pre>
+        <p>Transforms don't work on inline elements. Add display: inline-block;</p>
+        <p>Scale(x,y) function scales an element by the defined factors horizontally then vertically. One value provided will be used for X and Y values.</p>
+        <p>The rotate() function rotates an element around the oint of origin by a specified angle value. The default point of origin is the element's center.</p>
+        <p>Skew(x,y) function specifies a skew along the x and y axes.</p>
+        <p>The transform-origin property changes where the point of origin is - works for ellipses not circles</p>
+        <p>Order of transform functions matter - if you rotate before translating, your translate direction will be on the rotated axis.</p>
+        <p>If you want to rotate in IE go to <a href="http://www.useragentman.com/IETransformsTranslator/">IE Transforms Translator</a></p>
+        <h3>Transitions</h3>
+        <p>We can animate any of the transforms we've seen so far.</p>
+        <p>Steps to create a simple transition using only CSS:</p>
+        <ol>
+            <li>Declare the original state of the element in the default style declaration.</li>
+            <li>Declare the final state of your transitioned element; for example, a :hover state.</li>
+            <li>Include the transition functions in your default style declaration using the transition properties, including: transition-property, transition-duration, transition-timing-function, and transition-delay.</li>
+        </ol>
+        <p>It's important that the transition is declared in the default state. -webkit- vendor prefix is needed for older mobile devices.</p>
+        <p>Transition-property defines the CSS properties of the element that should be transitioned, will "all" for all properties being the default</p>
+        <p>For example, we can transition <i>color</i> and <i>width</i></p>
+        <p>List of animatable properties can be found <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties</a></p>
+        <pre><code>
+            transition-property: transform;
+        </code></pre>
+        <p>Transition-duration property sets how long the transition will take in s or ms</p>
+        <p>Transition-timing-function lets you control the pace of the transition.</p>
+        <ul>
+            <li>Ease</li>
+            <li>Linear</li>
+            <li>Ease-in</li>
+            <li>Ease-out</li>
+            <li>Ease-in-out</li>
+            <li>Cubic-bezier(0, 0, 1, 1) (this one is the same as linear, but can be customized)</li>
+        </ul>
+        <p>Transition-delay introduces a delay before the transition begins. Default is 0.</p>
+        <p>Transition shorthand property order:</p>
+        <ul>
+            <li>transition-property</li>
+            <li>transition-duration</li>
+            <li>transition-timing-function</li>
+            <li>transition-delay</li>
+        </ul>
+        <pre><code>
+            transition: transform 0.2s ease-out 50ms;
+        </code></pre>
+        <p>With multiple transitions you can separate values with commas</p>
+        <pre><code>
+            transition-property: transform, color;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-out, linear;
+            transition-delay: 50ms;
+        </code></pre>
+        <p>Or with shorthand:</p>
+        <pre><code>
+            transition: transform 0.2s ease-out 50ms, color 0.1s linear 50ms;
+        </code></pre>
+        <h3>Animations</h3>
+        <p>You control animations via keyframes</p>
+        <pre><code>
+            @-webkit-keyframes myAnimation {
+                /* Animation keyframes here */
+            }
+            @keyframes myAnimation {
+                /* Animation keyframes here */
+            }
+        </code></pre>
+        <p>Examples:</p>
+        <pre><code>
+            @keyframes moveRight {
+                from {
+                    transform: translateX(-50%);
+                }
+                to {
+                    transform: translateX(50%);
+                }
+            }
+            @keyframes appearDisappear {
+                0, 100% {
+                    opacity: 0;
+                }
+                20%, 80% {
+                    opacity: 1;
+                }
+            }
+        </code></pre>
+
+        <p>Animation properties include animation-name and animation-duration</p>
+        <p>Animation-timing-function options are the same as for transition-timing-function</p>
+        <p>Can also use steps(number, direction)</p>
+        <p>animation-iteration-count lets you define how many times the animation will play. Default is 1, can be up to infinite</p>
+        <p>animation-direction default is normal, can do reverse, or alternate</p>
+        <p>animation-delay how many seconds to wait before browser begins animation</p>
+        <p>animation-fill-mode defines what happens before the first animation iteration begins. none, forwards, backwards, or both. Default is none</p>
+        <p>Animation shorthand:</p>
+        <pre><code>
+            .verbose {
+                animation-name: appearDisappear; 
+                animation-duration: 300ms; 
+                animation-timing-function: ease-in;
+                animation-iteration-count: 1;
+                animation-direction: alternate;
+                animation-delay: 5s;
+                animation-fill-mode: backwards;
+                animation-play-state: running;
+            }
+            /* shorthand */
+            .concise {
+                animation: 300ms ease-in alternate 5s backwards appearDisappear;
+            }
+        </code></pre>
+        <h2>Chapter 12 - Canvas, SVG, and Drag and Drop</h2>
+        <p>To use a canvas, add a canvas element to html page</p>
+        <pre><code>
+            &lt;canvas id="myCanvas" width="200" height="200"&gt;
+                This text will only be shown if canvas element is not supported by visitor's browser
+                &lt;/canvas&gt;
+        </code></pre>
+        <p>Add an id to be able to use it in javascript</p>
+        <p>Need to use width and height. Default is 300w and 150h</p>
+        <p>Here's some example canvas javascript:</p>
+        <pre><code>
+            var canvas = document.getElementById("myCanvas"); 
+var context = canvas.getContext("2d"); 
+context.strokeStyle = "red";
+context.fillStyle = "rgba(0, 0, 255, 0.5)";
+context.fillRect(10, 10, 100, 100);   
+context.strokeRect(10, 10, 100, 100);
+        </code></pre>
+        <p>And another:</p>
+        <pre>
+            <code>
+                function drawPattern() {
+                    …
+                    var img = new Image();
+                    img.src = "../images/bg-bike.png";
+                    img.onload = function() {
+                    var pattern = context.createPattern(img, "repeat"); 
+                    context.fillStyle = pattern;                        
+                    context.fillRect(10, 10, 100, 100);                  
+                    context.strokeRect(10, 10, 100, 100);             
+                    };
+            </code>
+        </pre>
+        <p>This one for a circle:</p>
+        <pre><code>
+            function drawCircle(canvas) {
+                var context = canvas.getContext("2d");
+                context.beginPath();
+                context.arc(100, 100, 50, 0, Math.PI*2, true);
+                context.closePath();
+                context.strokeStyle = "red";
+                context.fillStyle = "blue";
+                context.lineWidth = 3;
+                context.fill(); 
+                context.stroke(); 
+            }
+        </code></pre>
+        <p>Save a drawing:</p>
+        <pre><code>
+            function saveDrawing() {
+                var canvas5 = document.getElementById("demo5");
+                window.open(canvas5.toDataURL("image/png"));
+            }
+        </code></pre>
+        <p>SVG stuff I've done before</p>
+        <p>Long story short, use illustrator</p>
+        <p>Drag and drop</p>
+        <p>Two major kinds of implementation with drag and drop: drag files from computer into a web page in combination with the File API, or dragging elements into other elements on the same page</p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications">A guide to using File API drag and drop</a></p>
+        <p>Several steps to adding drag and drop to your page:</p>
+        <ol>
+            <li>Set the draggable attribute on any HTML elements you'd like to be draggable</li>
+            <li>Add an event listener for the dragStart event on any draggable HTML elements</li>
+            <li>Add an event listener for the dragover and drop events on any elemnts that you want to have accept dropped items.</li>
+        </ol>
+        <p>draggable="true" - note that it is not a boolean</p>
+        <p>Need to prevent default on dragover events</p>
+        <p>I want to play around with this</p>
+        <p>No questions this week just work to do.</p>
+
+    </main>
+</body>
+
+</html>
