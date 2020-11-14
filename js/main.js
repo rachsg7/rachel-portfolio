@@ -87,6 +87,10 @@ const links = {
             {
                 label: "Drums",
                 url: "Week9/javascript30-drums/index-START.html"
+            },
+            {
+                label: "Challenge Proposal",
+                url: "Week9/challenge-proposal.html"
             }
         ]
     }
