@@ -78,6 +78,17 @@ const links = {
             label: "Notes",
             url: "Week8/notes.html"
         }]
+    },
+    "Week 9": {
+        links: [{
+                label: "Notes",
+                url: "Week9/notes.html"
+            },
+            {
+                label: "Drums",
+                url: "Week9/javascript30-drums/index-START.html"
+            }
+        ]
     }
 
 }

@@ -37,7 +37,196 @@
             }
         </code></pre>
         <p>This will return false instead of throwing an error</p>
+        <p>Functions include parseInt() and isNaN(), but as of ES6 they are functions of the Number object</p>
+        <p>alert(), confirm(), prompt() are windows methods</p>
+        <p>The window object has properties that provide information about the user's browser:</p>
+        <p>Navigator property contains reference to Navigator object, which contains information about the browser being used. userAgent property return information about the browser and OS used</p>
+        <p>It can be modified by a user to masquerade as a different browser. userAgent has been deprecated from official specification, but remains supported in all major browsers</p>
+        <p>window.location contains information about URL of current page. To return full string use:</p>
+        <pre><code>
+            window.location.href 
+            &lt;&lt; "https://www.sitepoint.com/premium/books/javascript-novice-to-ninja"
+        </code></pre>
+        <p>You can redirect page by using window.location.href = "https://www.sitepoint.com/javascript/"</p>
+        <p>Protocol property returns a string describing protocol used (http, https, pop2, ftp)</p>
+        <p>Host property returns string describing the domain of the current URL and port number</p>
+        <p>Hostname property returns a string with the domain of the current URL</p>
+        <p>Port property returns a string with the portnumber, but will return empty if not explicitly stated in URL</p>
+        <p>Pathname property returns a string of the path that follows the domain</p>
+        <p>Search property returns a string that starts with a ? followed by the query string parameters</p>
+        <pre><code>
+            window.location.search
+            &lt;&lt; "?q=javascript&limit=24&offset=0&page=1&
+            content_types[]=All&slugs[]=all&states[]=available&order="
+        </code></pre>
+        <p>Hash property returns a string that starts with a # followed by the fragment identifier.</p>
+        <p>Origin property returns a string that shows the protocol and domain where the current page originated from. Read-only</p>
+        <p>Window.location has following methods:</p>
+        <ul>
+            <li>reload() method can force reload current page. If given parameter of <i>true</i>, it will force the browser to reload page from server, not cached page</li>
+            <li>assign() method can be used to load another resource from a URL provided as a parameter</li>
+            <li>replace() is almost the same as assign() but the current page will not be stored in the session history, so the user will be unable to navigate back to it using the back button</li>
+            <li>toString() returns a string containing the whole URL</li>
+        </ul>
+        <p>window.history can be used to access information about previously visited pages in current browser session.</p>
+        <p>window.history.length property shows how many pages have been visited before arriving at current page</p>
+        <p>window.history.go() method can be used to go to a specific page, where 0 is the current page</p>
+        <p>Open a new window:</p>
+        <pre><code>
+            const popup = window.open('https://sitepoint.com','
+            SitePoint','width=400,height=400,resizable=yes');
 
+            popup.close(); // Will close the window
+        </code></pre>
+        <p>Don't use this stuff because they're pop ups :)</p>
+        <p>window.screen</p>
+        <ul>
+            <li>window.screen.height: returns screen height</li>
+            <li>window.screen.width: returns screen width</li>
+            <li>window.screen.availWidth and .availHeight can find the height and width of screen excluding operating system menus</li>
+            <li>window.screen.colorDepth can find color bit depth of user's monitor</li>
+            <li>Screen object has more uses for mobile devices. Can allow you to turn of device's screen, detect a change in orientation, or lock it in a specific orientation</li>
+            <li>Use media queries instead</li>
+        </ul>
+        <p>Document object</p>
+        <p>document.write('Hello world') will rewrite the entire html to this, so don't do it</p>
+        <p>You can put it inside script tags to not overwrite whole page</p>
+        <p>Cookies can store 4kb of data, although 20 cookies are allowed per domain</p>
+        <pre><code>document.cookie = 'name=Superman';</code></pre>
+        <p>To see current contents of cookie jar:</p>
+        <pre><code>
+            const cookies = document.cookie.split("; ");
+            for (crumb of cookies){
+            const [key,value] = crumb.split("=");
+            console.log(`The value of ${key} is ${value}`);
+            }
+        </code></pre>
+        <p>You can set cookies to expire at a certain time, otherwise they are deleted at the end of the browser session</p>
+        <pre><code>
+            const expiryDate = new Date(); 
+            const tomorrow = expiryDate.getTime() + 1000 * 60 * 60 * 24;
+            expiryDate.setTime(tomorrow);
+            document.cookie = `name=Batman; expires=${ expiryDate.toUTCString()}`;
+        </code></pre>
+        <p>To ensure a cookie will only be transmitted over HTTPS network:</p>
+        <pre><code>
+            document.cookie = 'name=Batman; secure';
+        </code></pre>
+        <p>window.setTimeout() function accepts a callback to a function, and a number of milliseconds as its second parameter</p>
+        <p>window.setInterval() will repeatedly invoke callback function on an interval of milliseconds</p>
+        <h2>Chapter 14 - HTML5 APIs</h2>
+        <p>The data- attribute is a way of embedding data in a web page using custom attributes that are ignored by the browser. To be used by javascript</p>
+        <p>Data attributes must use this format:</p>
+        <ul>
+            <li>Start with 'data-'</li>
+            <li>Contain only lowercase letters, numbers, hyphens, dots, colons or underscores</li>
+            <li>Include an optional string value</li>
+        </ul>
+        <p>Example:</p>
+        <pre><code>
+            data-powers = 'flight superSpeed'
+            data-rating = '5' 
+            data-dropdown 
+            data-user = 'DAZ' 
+            data-max-length = '32'
+        </code></pre>
+        <p>Web Storage differences from cookies:</p>
+        <ul>
+            <li>Information stored is not shared with the server on every request</li>
+            <li>Information is available in multiple windows of the browser only if the domain is the same</li>
+            <li>Storage capacity limit is much larger (most browsers limit at 5GB per domain)</li>
+            <li>Any data stored does not automatically expire</li>
+        </ul>
+        <p>localStorage property to store data. Saved in the form of key-value pairs which are strings. There's also a sessionStorage object that's only saved for the current session</p>
+        <p>This is an example of how I saved my objects in the todo list:</p>
+        <pre><code>
+            localStorage.setItem('list', JSON.stringify(this.data));
+        </code></pre>
+        <p>This is an example from the book:</p>
+        <pre><code>
+            localStorage.setItem('name', 'Walter White');
+            localStorage.getItem('name'); // This is how you get the object back
+        </code></pre>
+        <p>Another way to do it:</p>
+        <pre><code>
+            localStorage.name = 'Heisenberg';
+            localStorage.removeItem('name');
+            delete localStorage.name;
+            localStorage.clear(); // Removes everything in local storage
+        </code></pre>
+        <p>When a value is saved to local storage, a <b>storage event</b> is fired. Information from the event called:</p>
+        <ul>
+            <li><b>key</b> tells us the key of the item that was changed</li>
+            <li><b>newValue</b> tells us the new value to which it has been changed</li>
+            <li><b>oldValue</b> tells us the previous value before it was changed</li>
+            <li><b>storageArea</b> tells us if it is stored in local or session storage</li>
+        </ul>
+        <p>Use JSON stringify to turn objects into strings like I did above</p>
+        <p>geolocation can be found:</p>
+        <pre><code>
+            navigator.geolocation.getCurrentPosition(youAreHere);
+
+            function youAreHere(position) {
+                console.log(`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`); 
+            }
+        </code></pre>
+        <p>Position object's properties:</p>
+        <ul>
+            <li>position.speed returns ground speed of device in meters per second</li>
+            <li>position.altitude returns estimate of device's altitude in meters</li>
+            <li>position.heading returns direction the device is moving in</li>
+            <li>position.timestamp returns the time the position information was recorded</li>
+        </ul>
+        <p>Websocket is a new protocol that allows two-way communication with a server - push messaging</p>
+        <pre><code>
+            const URL = 'wss://echo.websocket.org/';
+            const outputDiv = document.getElementById('output');
+            const form = document.forms[0];
+            const connection = new WebSocket(URL);
+
+            connection.addEventListener('open', () => {
+                output('CONNECTED');
+            }, false);
+
+            function output(message) {
+                const para = document.createElement('p');
+                para.innerHTML = message;
+                outputDiv.appendChild(para);
+            }
+
+            form.addEventListener('submit', message, false);
+
+            function message(event) {
+                event.preventDefault();
+                const text = form.message.value;
+                output(`SENT: ${text}`);
+                connection.send(text);
+            }
+
+            connection.addEventListener('message', (event) => {
+                output(`RESPONSE: ${event.data}`);
+            }, false);
+
+            connection.addEventListener('close', () => {
+                output('DISCONNECTED');
+            }, false);
+            connection.addEventListener('error', (event) => {
+            output(`&lt;span style='color: red;'&gt;ERROR: ${event.data}&lt;/span&gt;`);
+            }, false);
+        </code></pre>
+        <p>HTML now has audio and video tags</p>
+        <p>Audio and video properties and methods:</p>
+        <ul>
+            <li>video.play() will start clip playing from current position</li>
+            <li>video.pause() will pause clip at current position</li>
+            <li>video.volume = 0.9; is a number that can be used to set audio volume</li>
+            <li>video.muted = true; boolean value to mute audio</li>
+            <li>video.currentTime +=10; // jumps forwards 10 seconds</li>
+            <li>video.playbackRate = 8; // fast-forward at 8 times as fast</li>
+            <li>video.loop = true; will make clip repeat in a loop</li>
+            <li>video.duration can be used to show how long clip lasts</li>
+        </ul>
+        <p>No questions this week, but a lot of new fun things to play with. I can see how some can be used maliciously, like the popups, so be careful with those.</p>
     </main>
 </body>
 
