@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 9 Notes</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Portfolio for Rachel Schutz - Week 9 Notes</h1>
+    </header>
+
+    <main>
+        <h2>Chapter 9 - The Window Object</h2>
+        <p>Every Javascript environment has a <b>global object</b>, and any variables in global scope are a part of that object.</p>
+        <p>The Browser Object Model is a collection of properties and methods that contain information about the browser and computer screen</p>
+        <p>Every browser window, tab, popup, frame and iframe has a window object.</p>
+        <p>Node.js does not have a window object, since it is not run through the browser</p>
+        <p>Global variables are created without const, let, or var keywords. You can call these using the window object.</p>
+        <p>This can be useful to check if global variables exist. For example:</p>
+        <pre><code>if(x) {
+            // do something
+        }
+        </code></pre>
+        <p>This throws an error if x has not been defined. But doing this:</p>
+        <pre><code>
+            if(window.x) {
+                //do something
+            }
+        </code></pre>
+        <p>This will return false instead of throwing an error</p>
+
+    </main>
+</body>
+
+</html>
