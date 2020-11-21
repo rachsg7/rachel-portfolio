@@ -93,6 +93,17 @@ const links = {
                 url: "Week9/challenge-proposal.html"
             }
         ]
+    },
+    "Week 10": {
+        links: [{
+                label: "Notes",
+                url: "Week10/notes.html"
+            },
+            {
+                label: "Team Activity",
+                url: "Week10/index.html"
+            }
+        ]
     }
 
 }

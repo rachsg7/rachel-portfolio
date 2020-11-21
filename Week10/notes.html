@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 10 Notes</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Portfolio for Rachel Schutz - Week 10 Notes</h1>
+    </header>
+
+    <main>
+        <h2>Validating using JavaScript</h2>
+        <p>The Constraint Validation API contains methods and properties on the following form element DOM interfaces:</p>
+        <ul>
+            <li>HTMLButtonElement (&lt;button&gt;)</li>
+            <li>HTMLFieldSetElement (&lt;fieldset&gt;)</li>
+            <li>HTMLInputElement (&lt;input&gt;)</li>
+            <li>HTMLOutputElement (&lt;output&gt;)</li>
+            <li>HTMLSelectElement (&lt;select&gt;)</li>
+            <li>HTMLTextAreaElement (&lt;textarea&gt;)</li>
+        </ul>
+        <p>Properties that are available on those above elements include:</p>
+        <ul>
+            <li>validationMessage: Returns a message describing the validation constraints that the control doesn't satisfy. If the control is not a candidate for constraint validation (willValidate is false) or the element's value satisfies its constraints
+                it returns an empty string.
+            </li>
+            <li>validity: Returns a ValidityState object that contains several properties describing the validity state of the element. Common ones include:</li>
+            <ul>
+                <li>patternMismatch: returns true if the value does n ot match the specified pattern, and false if it does match. If true the element matches the :invalid CSS pseudo class.</li>
+                <li>tooLong: Returns true if the value is longer than the maximum length specified by maxlength attribute. If true, the element matches the :invalid CSS pseudo class.</li>
+                <li>tooShort: Returns true if the value is shorter than minlength attribute, and again matches the :invalid CSS pseudo class.</li>
+                <li>rangeOverflow: Returns true if the value is greater than the maximum specified by the max attribute. If true, matches the :invalid and :out-of-range CSS pseudo classes</li>
+                <li>rangeUnderflow: Returns true if the value is less than the minimum specified by the min attribute. Matches :invalid and :out-of-range pseudo classes</li>
+                <li>typeMismatch: Returns true if the value is not the required syntax (when type is email or url) If true, matches :invalid</li>
+                <li>valid: Returns true if the element meets all its validation constraints. If true, it matches the :valid CSS pseudo class, and :invalid otherwise</li>
+                <li>valueMissing: Returns true if the element has a required attribute but no value, or false otherwise. If true it matches the :invalid pseudo class</li>
+            </ul>
+            <li>willValidate: Returns true if the element will be validated when the form is submitted, false otherwise.</li>
+        </ul>
+        <p>Methods available on above elements:</p>
+        <ul>
+            <li>checkValidity(): returns true if the element's value has no validity problems, false otherwise. If it's invalid it fires an <i>invalid event</i> on the element</li>
+            <li>setCustomValidity(message): Adds a custom error message to the element. If you set a custom error message, the element is considered to be invalid, and the specified error is displayed. Lets you use JavaScript to establish a validation failure
+                other than standard constraints.</li>
+        </ul>
+        <h2>Using Fetch</h2>
+        <p>Basic Fetch:</p>
+        <pre><code>
+            fetch('http://example.com/movies.json')
+            .then(response => response.json())
+            .then(data => console.log(data));
+        </code></pre>
+        <p>fetch() method can optionally accept a second parameter, an init object that allows you to control settings:</p>
+        <pre><code>
+            // Example POST method implementation:
+            async function postData(url = '', data = {}) {
+            // Default options are marked with *
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+            return response.json(); // parses JSON response into native JavaScript objects
+            }
+
+            postData('https://example.com/answer', { answer: 42 })
+            .then(data => {
+                console.log(data); // JSON data parsed by `data.json()` call
+            });
+        </code></pre>
+        <p>Use fetch() to POST JSON-encoded data.</p>
+        <pre><code>
+            const data = { username: 'example' };
+
+            fetch('https://example.com/profile', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+            console.log('Success:', data);
+            })
+            .catch((error) => {
+            console.error('Error:', error);
+            });
+        </code></pre>
+
+    </main>
+</body>
+
+</html>
