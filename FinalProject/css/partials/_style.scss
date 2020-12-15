@@ -250,6 +250,7 @@ div div {
 
 .bold {
     background-color: black !important;
+    z-index: 1;
     // This was not overriding all classes hence the important
 }
 

@@ -447,6 +447,7 @@ body {
 
 .bold {
   background-color: black !important;
+  z-index: 1;
 }
 
 /*div div:hover {
