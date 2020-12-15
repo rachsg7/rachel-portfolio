@@ -1,0 +1,200 @@
+// Media query break points
+$S: 768px;
+$M: 1024px;
+$L: 1293px;
+@mixin MQ($canvas) {
+    @if $canvas==S {
+        @media only screen and (min-width: $S) {
+            @content;
+        }
+    }
+    @else if $canvas==M {
+        @media only screen and (min-width: $M) {
+            @content;
+        }
+    }
+}
+
+.defend {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.defenderName {
+    @include MQ(S) {
+        display: none;
+    }
+}
+
+.grid-container {
+    width: 80%;
+    margin: auto;
+    @include MQ(S) {
+        display: grid;
+        grid-template-columns: repeat(19, 1fr);
+        grid-template-rows: repeat(19, 1fr);
+        grid-gap: 5px;
+        margin: 30px;
+    }
+}
+
+span.long-name {
+    @include MQ(S) {
+        display: none;
+    }
+    @include MQ(M) {
+        display: block;
+    }
+    @include MQ(L) {
+        display: block;
+    }
+}
+
+span.short-name {
+    @include MQ(M) {
+        display: none;
+    }
+    @include MQ(L) {
+        display: none;
+    }
+}
+
+// All divs in the grid
+div div {
+    padding: 5px;
+    text-align: right;
+    border-radius: 7px;
+}
+
+div div span {
+    display: block;
+}
+
+// Hide all normal classes in mobile view
+.Fighting.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Fire.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Electric.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Bug.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Grass.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Ice.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Water.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Flying.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Ghost.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Dragon.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Poison.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Psychic.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Fairy.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Normal.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Ground.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Rock.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Steel.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}
+
+.Dark.normal {
+    display: none;
+    @include MQ(S) {
+        display: block;
+    }
+}

@@ -1,0 +1,468 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+.defend {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .defend {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .defenderName {
+    display: none;
+  }
+}
+
+.grid-container {
+  width: 80%;
+  margin: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .grid-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[19];
+        grid-template-columns: repeat(19, 1fr);
+    -ms-grid-rows: (1fr)[19];
+        grid-template-rows: repeat(19, 1fr);
+    grid-gap: 5px;
+    margin: 30px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  span.long-name {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  span.long-name {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  span.short-name {
+    display: none;
+  }
+}
+
+div div {
+  padding: 5px;
+  text-align: right;
+  border-radius: 7px;
+}
+
+div div span {
+  display: block;
+}
+
+.Fighting.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Fighting.normal {
+    display: block;
+  }
+}
+
+.Fire.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Fire.normal {
+    display: block;
+  }
+}
+
+.Electric.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Electric.normal {
+    display: block;
+  }
+}
+
+.Bug.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Bug.normal {
+    display: block;
+  }
+}
+
+.Grass.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Grass.normal {
+    display: block;
+  }
+}
+
+.Ice.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Ice.normal {
+    display: block;
+  }
+}
+
+.Water.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Water.normal {
+    display: block;
+  }
+}
+
+.Flying.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Flying.normal {
+    display: block;
+  }
+}
+
+.Ghost.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Ghost.normal {
+    display: block;
+  }
+}
+
+.Dragon.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Dragon.normal {
+    display: block;
+  }
+}
+
+.Poison.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Poison.normal {
+    display: block;
+  }
+}
+
+.Psychic.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Psychic.normal {
+    display: block;
+  }
+}
+
+.Fairy.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Fairy.normal {
+    display: block;
+  }
+}
+
+.Normal.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Normal.normal {
+    display: block;
+  }
+}
+
+.Ground.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Ground.normal {
+    display: block;
+  }
+}
+
+.Rock.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Rock.normal {
+    display: block;
+  }
+}
+
+.Steel.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Steel.normal {
+    display: block;
+  }
+}
+
+.Dark.normal {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .Dark.normal {
+    display: block;
+  }
+}
+
+html {
+  font-family: "Montserrat";
+  font-weight: 600;
+}
+
+body {
+  background-color: #dfdfdf;
+}
+
+@media only screen and (min-width: 768px) {
+  .even {
+    background-color: rgba(80, 80, 80, 0.13);
+  }
+}
+
+.Fighting.defend,
+.Fighting.attack,
+.Fighting.defenderName {
+  background-color: #ED1E24;
+  color: white;
+}
+
+.Fire.defend,
+.Fire.attack,
+.Fire.defenderName {
+  background-color: #FBA51A;
+  color: white;
+}
+
+.Electric.defend,
+.Electric.attack,
+.Electric.defenderName {
+  background-color: #F4EB22;
+  color: white;
+}
+
+.Bug.defend,
+.Bug.attack,
+.Bug.defenderName {
+  background-color: #9BCA3C;
+  color: white;
+}
+
+.Grass.defend,
+.Grass.attack,
+.Grass.defenderName {
+  background-color: #71C055;
+  color: white;
+}
+
+.Ice.defend,
+.Ice.attack,
+.Ice.defenderName {
+  background-color: #97B6C9;
+  color: white;
+}
+
+.Water.defend,
+.Water.attack,
+.Water.defenderName {
+  background-color: #40B8EA;
+  color: white;
+}
+
+.Flying.defend,
+.Flying.attack,
+.Flying.defenderName {
+  background-color: #436FB6;
+  color: white;
+}
+
+.Ghost.defend,
+.Ghost.attack,
+.Ghost.defenderName {
+  background-color: #5B52A3;
+  color: white;
+}
+
+.Dragon.defend,
+.Dragon.attack,
+.Dragon.defenderName {
+  background-color: #756BB0;
+  color: white;
+}
+
+.Poison.defend,
+.Poison.attack,
+.Poison.defenderName {
+  background-color: #8750A1;
+  color: white;
+}
+
+.Psychic.defend,
+.Psychic.attack,
+.Psychic.defenderName {
+  background-color: #EC197A;
+  color: white;
+}
+
+.Fairy.defend,
+.Fairy.attack,
+.Fairy.defenderName {
+  background-color: #F489A7;
+  color: white;
+}
+
+.Normal.defend,
+.Normal.attack,
+.Normal.defenderName {
+  background-color: #A9A87A;
+  color: white;
+}
+
+.Ground.defend,
+.Ground.attack,
+.Ground.defenderName {
+  background-color: #C7AB87;
+  color: white;
+}
+
+.Rock.defend,
+.Rock.attack,
+.Rock.defenderName {
+  background-color: #E7B46E;
+  color: white;
+}
+
+.Steel.defend,
+.Steel.attack,
+.Steel.defenderName {
+  background-color: #B3B3B3;
+  color: white;
+}
+
+.Dark.defend,
+.Dark.attack,
+.Dark.defenderName {
+  background-color: #251101;
+  color: white;
+}
+
+@media only screen and (min-width: 768px) {
+  .noteffective {
+    background-color: rgba(237, 30, 37, 0.5);
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .supereffective {
+    background-color: rgba(114, 192, 85, 0.5);
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .immune {
+    background-color: rgba(37, 17, 1, 0.5);
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .noteffective.even {
+    background-color: rgba(237, 30, 37, 0.5);
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .supereffective.even {
+    background-color: rgba(114, 192, 85, 0.5);
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  div div {
+    -webkit-box-shadow: 2px 2px 2px grey;
+            box-shadow: 2px 2px 2px grey;
+    text-shadow: 1px 1px black;
+  }
+}
+
+.nothing {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.larger {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+.smaller {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.card {
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.bold {
+  background-color: black !important;
+}
+
+/*div div:hover {
+    transform: scale(1.2, 1.2);
+    transition: .2s;
+}
+
+.supereffective:hover {
+    background-color: $supereffectiveFull;
+}
+
+.noteffective:hover {
+    background-color: $noteffectivefull;
+}
+
+.immune:hover {
+    background-color: $immunefull;
+}*/
+/*# sourceMappingURL=styles.css.map */

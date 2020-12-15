@@ -104,6 +104,18 @@ const links = {
                 url: "Week10/index.html"
             }
         ]
+    },
+    "Week 11": {
+        links: [{
+            label: "Index",
+            url: "Week11/index.html"
+        }]
+    },
+    "Final Project": {
+        links: [{
+            label: "Pokemon Type Chart",
+            url: "FinalProject/index.html"
+        }]
     }
 
 }
